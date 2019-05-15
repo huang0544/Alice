@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hjj.dao.CommentDao">
+    <!-- 添加评论 -->
+    <insert id="AddComment">
+        insert into Comment(commentArticleId,commentContent,commentByName,commentByEmail)
+        values(#{commentArticleId},#{commentContent},#{commentByName},#{commentByEmail})
+    </insert>
+    <!-- 删除评论 -->
+    <delete id="DeleteComment">
+        delete from Comment where commentId=#{commentId} 
+    </delete>
+    <select id="getCommentByArticleId" resultType="com.hjj.pojo.CommentBean">
+        select * from Comment where commentArticleId=#{articleId}
+    </select>
+</mapper>

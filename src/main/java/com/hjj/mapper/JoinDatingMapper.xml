@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hjj.dao.JoinDatingDao">
+    <insert id="addJoinDating" parameterType="com.hjj.pojo.JoinDatingBean">
+        insert into JoinDating(joinDatingId,joinDatingSponsorName,joinDatingSponsorEmail,joinDatingName,joinDatingContent,joinDatingStartTime
+        ,joinDatingOverTime,joinUserName,joinUserEmail,joinUserSex,joinUserIphone)
+        values(#{joinDatingId},#{joinDatingSponsorName},#{joinDatingSponsorEmail},#{joinDatingName},#{joinDatingContent},#{joinDatingStartTime},
+        #{joinDatingOverTime},#{joinUserName},#{joinUserEmail},#{joinUserSex},#{joinUserIphone})
+    </insert>
+    <delete id="deleteJoinDating">
+        delete from JoinDating where joinId=#{joinId}
+    </delete>
+    <select id="getJoinDatingByUserEamil" resultType="com.hjj.pojo.JoinDatingBean">
+        select * from JoinDating where joinUserEmail=#{joinUserEmail}
+    </select>
+    <select id="getJoinDatingByDatingId" resultType="com.hjj.pojo.JoinDatingBean">
+        select * from JoinDating where joinDatingId=#{joinDatingId}
+    </select>
+    <select id="getJoinDatingByJoinId" resultType="com.hjj.pojo.JoinDatingBean">
+        select * from JoinDating where joinId=#{joinId}
+    </select>
+</mapper>
